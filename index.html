@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xpanz Official - Panel Murah & Aman</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --accent: #00cec9;
+            --dark: #1e1e2d;
+            --darker: #161622;
+            --light: #f7f7f7;
+            --card-bg: #252538;
+            --success: #00b894;
+            --warning: #fdcb6e;
+            --danger: #ff7675;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 20, 0.92);
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(30, 30, 45, 0.85);
+            border-bottom: 1px solid rgba(108, 92, 231, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            background: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 20px rgba(108, 92, 231, 0.4);
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--secondary);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(108, 92, 231, 0.6);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(108, 92, 231, 0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #f7f7f7, #a29bfe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #d0d0e4;
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        /* Pricing Cards */
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin: 60px 0 40px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .pricing-card {
+            background: rgba(37, 37, 56, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(108, 92, 231, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-header {
+            padding: 25px;
+            background: rgba(108, 92, 231, 0.15);
+            border-bottom: 1px solid rgba(108, 92, 231, 0.3);
+            text-align: center;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .card-subtitle {
+            color: #b2b2d8;
+            font-size: 1rem;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        
+        .featured-price {
+            background: rgba(0, 206, 201, 0.1);
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .price-ram {
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        .price-value {
+            font-weight: 700;
+            color: var(--success);
+        }
+        
+        .features-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+        
+        .features-list li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .features-list li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+        }
+        
+        .vip-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: var(--darker);
+            font-weight: 700;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            transform: rotate(15deg);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: rgba(37, 37, 56, 0.8);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 60px 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(108, 92, 231, 0.3);
+        }
+        
+        .contact-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--secondary);
+        }
+        
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .contact-btn {
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            min-width: 250px;
+        }
+        
+        .telegram-btn {
+            background: linear-gradient(135deg, #0088cc, #00aced);
+            color: white;
+        }
+        
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+        }
+        
+        .whatsapp-alt-btn {
+            background: linear-gradient(135deg, #075E54, #128C7E);
+            color: white;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(108, 92, 231, 0.2);
+            margin-top: 60px;
+            color: #b2b2d8;
+            font-size: 0.9rem;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animated {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="logo-text">Xpanz Official</div>
+                </div>
+                <div class="nav-buttons">
+                    <a href="#services" class="btn btn-secondary">
+                        <i class="fas fa-server"></i> Layanan
+                    </a>
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-headset"></i> Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Panel Murah, Aman & Keamanan Tinggi</h1>
+            <p>Banyak yang jual panel murah, tapi kualitas dan keamanan harus jadi prioritas. <span class="highlight">Xpanz Official</span> menjawab kebutuhanmu dengan layanan premium terjangkau!</p>
+            <div class="nav-buttons">
+                <a href="#public-panel" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Lihat Layanan
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fab fa-whatsapp"></i> Chat Sekarang
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Public Panel -->
+    <div class="container">
+        <h2 class="section-title" id="public-panel">Panel Public</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card animated">
+                <div class="card-header">
+                    <h3 class="card-title">Pakai VPS Kami</h3>
+                    <p class="card-subtitle">Instan & Terkelola</p>
+                </div>
+                <div class="card-body">
+                    <div class="price-item">
+                        <span class="price-ram">RAM 1 GB</span>
+                        <span class="price-value">Rp 500</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-ram">RAM 2 GB</span>
+                        <span class="price-value">Rp 1.000</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-ram">RAM 3 GB</span>
+                        <span class="price-value">Rp 1.500</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-ram">RAM 4 GB</span>
+                        <span class="price-value">Rp 2.000</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-ram">RAM 5 GB</span>
+                        <span class="price-value">Rp 2.500</span>
+                    </div>
+                    <div class="price-item featured-price">
+                        <span class="price-ram">RAM UNLIMITED</span>
+                        <span class="price-value">Rp 6.000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Private Panel -->
+        <h2 class="section-title" id="services">Panel Private</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card animated delay-1">
+                <div class="card-header">
+                    <h3 class="card-title">Pakai VPS Sendiri</h3>
+                    <p class="card-subtitle">Lebih privat, aman, dan bebas atur server</p>
+                </div>
+                <div class="card-body">
+                    <div class="price-item">
+                        <span class="price-ram">RAM 1 GB</span>
+                        <span class="price-value">Rp 1.000</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-ram">RAM 2 GB</span>
+                        <span class="price-value">Rp 2.000</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-ram">RAM 3 GB</span>
+                        <span class="price-value">Rp 3.000</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-ram">RAM 4 GB</span>
+                        <span class="price-value">Rp 4.000</span>
+                    </div>
+                    <div class="price-item featured-price">
+                        <span class="price-ram">RAM UNLIMITED</span>
+                        <span class="price-value">Rp 12.000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fresh Panel -->
+        <h2 class="section-title">Panel Fresh</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card animated delay-2" style="position: relative;">
+                <div class="vip-badge">VIP OFFER</div>
+                <div class="card-header">
+                    <h3 class="card-title">Bisnis Premium</h3>
+                    <p class="card-subtitle">Terjamin Keamanannya</p>
+                </div>
+                <div class="card-body">
+                    <div class="price-item">
+                        <span>Reseller Panel</span>
+                        <span class="price-value">Rp 10.000</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Admin Panel</span>
+                        <span class="price-value">Rp 15.000</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Partner</span>
+                        <span class="price-value">Rp 20.000</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Owner</span>
+                        <span class="price-value">Rp 25.000</span>
+                    </div>
+                    <div class="price-item featured-price">
+                        <span>Pengurus VIP</span>
+                        <span class="price-value">Rp 45.000</span>
+                    </div>
+                    
+                    <ul class="features-list">
+                        <li>Garansi On</li>
+                        <li>Bot On 24jam</li>
+                        <li>Anti Delay</li>
+                        <li>Anti Maling Sc (Script)</li>
+                        <li>Auto Balik Modal</li>
+                        <li>Di Ajarin Sampai Bisa</li>
+                        <li>Server Terjamin Aman & Anti Rush 24jam</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="container">
+        <div class="contact-section animated delay-3" id="contact">
+            <h2 class="contact-title">Hubungi Kami Sekarang!</h2>
+            <p>Minat dengan layanan kami? Silahkan hubungi melalui kontak di bawah ini:</p>
+            
+            <div class="contact-buttons">
+                <a href="https://t.me/xpanz10" class="contact-btn telegram-btn">
+                    <i class="fab fa-telegram"></i> Telegram: @xpanz10
+                </a>
+                <a href="https://wa.me/6285135366878" class="contact-btn whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Utama
+                </a>
+                <a href="https://wa.me/6283116014312" class="contact-btn whatsapp-alt-btn">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Cadangan
+                </a>
+            </div>
+            
+            <p class="highlight" style="margin-top: 30px; font-size: 1.2rem;">
+                <i class="fas fa-bolt"></i> Fast Respon 24 Jam
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="logo-text">Xpanz Official</div>
+            </div>
+            <p>Solusi Panel Murah, Aman & Berkeamanan Tinggi</p>
+     
